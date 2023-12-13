@@ -1,9 +1,6 @@
 export default function Navigation({ searchTerm, onSearchTerm }) {
   return (
-    <header
-      className="fixed top-0 left-0 right-0 bg-white border-b-2 border-black py-2 z-50"
-      id="top"
-    >
+    <header className="fixed top-0 left-0 right-0 bg-white border-b-2 border-black py-2 z-50">
       <nav className="responsive-container flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-black">MMS SOLUTIONS</h1>
