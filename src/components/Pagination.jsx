@@ -18,7 +18,6 @@ export default function Pagination({ setCategory, activeTag, setActiveTag }) {
               : "bg-white text-black"
           } border border-black text-center py-1 font-semibold cursor-pointer`}
           onClick={() => {
-            console.log(link.name);
             setActiveTag(link.name);
             setCategory(link.href);
           }}
