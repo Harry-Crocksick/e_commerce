@@ -12,7 +12,7 @@ export default function Pagination({ setCategory, activeTag, setActiveTag }) {
       {navLinks.map((link) => (
         <li
           key={link.name}
-          className={`shrink-0 basis-[160px] ${
+          className={`shrink-0 basis-[160px] md:shrink lg:basis-1/5 ${
             activeTag === link.name
               ? "bg-neutral-700 text-white"
               : "bg-white text-black"
