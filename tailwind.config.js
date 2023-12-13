@@ -1,0 +1,21 @@
+/* eslint-disable no-undef */
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,html}",
+    "node_modules/preline/dist/*.js",
+  ],
+  theme: {
+    extend: {
+      keyframes: {
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/forms"), require("preline/plugin")],
+};
