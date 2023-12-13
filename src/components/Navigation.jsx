@@ -1,15 +1,25 @@
-export default function Navigation() {
+export default function Navigation({ searchTerm, onSearchTerm }) {
   return (
-    <header className="border-b-2 border-black py-2" id="top">
+    <header
+      className="fixed top-0 left-0 right-0 bg-white border-b-2 border-black py-2 z-50"
+      id="top"
+    >
       <nav className="responsive-container flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-black">MMS SOLUTIONS</h1>
           <p className="text-lg font-semibold text-slate-400">E-Commerce</p>
         </div>
         <div className="flex items-center space-x-2">
+          <input
+            type="search"
+            name="search"
+            value={searchTerm}
+            className="rounded-lg border border-black/40 hidden md:inline-block"
+            onChange={(e) => onSearchTerm(e.target.value.trim())}
+          />
           <button
             type="button"
-            className="relative inline-flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            className="relative inline-flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-400 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

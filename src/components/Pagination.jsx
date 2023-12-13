@@ -8,7 +8,7 @@ const navLinks = [
 
 export default function Pagination({ setCategory, activeTag, setActiveTag }) {
   return (
-    <ul className="responsive-container flex items-center gap-4 justify-between pt-2 pb-4 mt-2 overflow-x-auto">
+    <ul className="fixed top-[73px] left-0 right-0 bg-white z-40 responsive-container flex items-center gap-4 justify-between p-3 overflow-x-auto">
       {navLinks.map((link) => (
         <li
           key={link.name}

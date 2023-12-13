@@ -9,7 +9,7 @@ export default function SkeletonCard() {
       <div
         className={`${shimmer} relative shrink-0 -mt-16 mb-4 bg-gray-100 w-32 h-32`}
       ></div>
-      <h1 className="rounded-full h-6 bg-gray-100"></h1>
+      <h1 className="h-6 bg-gray-100"></h1>
       <p className="bg-gray-100 h-36"></p>
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-1">
@@ -35,9 +35,7 @@ export default function SkeletonCard() {
       </div>
       <div className="flex flex-col space-y-2 border-t border-gray-50 py-2">
         <p className="bg-gray-100 h-5"></p>
-        <button className="w-full py-1.5 text-white bg-gray-200 font-medium">
-          Add to Cart
-        </button>
+        <button className="w-full h-8 py-1.5 text-white bg-gray-200/50 font-medium"></button>
       </div>
     </div>
   );
