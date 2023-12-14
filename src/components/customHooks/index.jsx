@@ -4,6 +4,7 @@ let cache = new Map(); // Temporary storage for Manually caching (note: not so p
 
 // Custom Hook for data fetching and caching
 // TMI: cache lost when browser reloads it only survives for one browser session
+// and as long as user doesn't refresh the page!
 export function useFetch(url) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
