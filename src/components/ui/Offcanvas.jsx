@@ -47,11 +47,11 @@ export default function Offcanvas() {
             </div>
           </div>
           <footer className="border-t-2 border-black p-1.5">
-            <div className="text-right mb-4">
+            <div className="text-right mb-2">
               <p>Total Amount</p>
-              <p className="text-black text-xl font-semibold">$1000</p>
+              <p className="text-black text-2xl font-semibold">$1000</p>
             </div>
-            <button className="bg-neutral-700 text-white font-medium w-full">
+            <button className="bg-neutral-700 py-1.5 text-white font-medium w-full">
               Order Now
             </button>
           </footer>

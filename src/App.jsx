@@ -7,7 +7,7 @@ export default function App() {
   const [activeTag, setActiveTag] = useState("All");
   const [category, setCategory] = useState("");
   const [query, setQuery] = useState("");
-  const debouncedQuery = useDebounce(query, 400);
+  const debouncedQuery = useDebounce(query.trim(), 400);
 
   return (
     <main className="min-h-screen relative flex flex-col">

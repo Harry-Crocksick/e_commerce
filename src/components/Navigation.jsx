@@ -12,7 +12,7 @@ export default function Navigation({ searchTerm, onSearchTerm }) {
             name="search"
             value={searchTerm}
             className="rounded-lg border border-black/40 hidden md:inline-block"
-            onChange={(e) => onSearchTerm(e.target.value.trim())}
+            onChange={(e) => onSearchTerm(e.target.value)}
           />
           <button
             type="button"
