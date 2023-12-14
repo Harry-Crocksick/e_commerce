@@ -8,15 +8,15 @@ export default function Offcanvas() {
         className="hs-overlay hs-overlay-open:translate-x-0 translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-[60] bg-white border-s-2 border-black hidden"
         tabIndex={-1}
       >
-        <div className="flex flex-col h-screen">
-          <div className="flex justify-between items-center py-2 px-4 border-b-2 border-black dark:border-gray-700">
+        <div className="flex flex-col h-full">
+          <div className="flex justify-between items-center py-2 px-4 border-b-2 border-black">
             <div>
               <h1 className="text-xl font-bold text-black">MMS SOLUTIONS</h1>
               <p className="text-lg font-semibold text-slate-400">E-Commerce</p>
             </div>
             <button
               type="button"
-              className="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              className="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
               data-hs-overlay="#hs-overlay-right"
             >
               <span className="sr-only">Close modal</span>
