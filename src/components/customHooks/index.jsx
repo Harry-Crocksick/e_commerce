@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
-let cache = new Map(); // Manually caching (note: not so professional just basics)
+let cache = new Map(); // Temporary storage for Manually caching (note: not so professional just basics)
 
+// Custom Hook for data fetching and caching
+// TMI: cache lost when browser reloads it only survives for one browser session
 export function useFetch(url) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
