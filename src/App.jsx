@@ -4,6 +4,7 @@ import { Navigation, Footer, Pagination, ProductCards } from "./components";
 import { Offcanvas } from "./components/ui";
 
 export default function App() {
+  const [selectedItems, setSelectedItems] = useState([]);
   const [activeTag, setActiveTag] = useState("All");
   const [category, setCategory] = useState("");
   const [query, setQuery] = useState("");
@@ -18,7 +19,12 @@ export default function App() {
         activeTag={activeTag}
         setActiveTag={setActiveTag}
       />
-      <ProductCards searchTerm={debouncedQuery} category={category} />
+      <ProductCards
+        selectedItems={selectedItems}
+        onSelectedItems={setSelectedItems}
+        searchTerm={debouncedQuery}
+        category={category}
+      />
       <Footer />
     </main>
   );

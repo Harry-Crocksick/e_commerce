@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Stars from "./Stars";
 
 export default function ItemCard({
@@ -7,7 +8,10 @@ export default function ItemCard({
   title,
   rating,
   price,
+  onSelectedItems,
 }) {
+  const [isChosen, setIsChosen] = useState(false);
+
   return (
     <div
       key={id}
@@ -34,8 +38,17 @@ export default function ItemCard({
       </div>
       <div className="flex flex-col space-y-2 border-t border-black py-2">
         <p className="text-black text-lg font-semibold">${price}</p>
-        <button className="w-full py-1.5 text-white bg-neutral-700 font-medium">
-          Add to Cart
+        <button
+          disabled={isChosen}
+          className={`${
+            isChosen && "opacity-50"
+          } w-full py-1.5 text-white bg-neutral-700 font-medium`}
+          onClick={() => {
+            onSelectedItems(id);
+            setIsChosen(true);
+          }}
+        >
+          {isChosen ? "Added" : "Add to Cart"}
         </button>
       </div>
     </div>
