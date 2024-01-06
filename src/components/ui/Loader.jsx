@@ -1,13 +1,10 @@
 export default function SkeletonCard() {
-  const shimmer =
-    "before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1500ms_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent";
-
   return (
     <div
-      className={`${shimmer} col-span-2 flex flex-col space-y-3 h-auto border-2 border-gray-100 px-2 relative`}
+      className="shimmer col-span-2 flex flex-col space-y-3 h-auto border-2 border-gray-100 px-2 relative"
     >
       <div
-        className={`${shimmer} relative shrink-0 -mt-16 mb-4 bg-gray-100 w-32 h-32`}
+        className="shimmer relative shrink-0 -mt-16 mb-4 bg-gray-100 w-32 h-32"
       ></div>
       <h1 className="h-6 bg-gray-100"></h1>
       <p className="bg-gray-100 h-36"></p>

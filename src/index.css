@@ -6,6 +6,10 @@
   .responsive-container {
     @apply max-w-6xl w-full px-4 mx-auto;
   }
+
+  .shimmer {
+    @apply before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1500ms_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent;
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -15,6 +19,8 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
