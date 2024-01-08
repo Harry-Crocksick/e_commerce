@@ -16,26 +16,25 @@ export default function ProductCards({
 
   return (
     <>
-      {isLoading
-        ? (
-          <Container>
-            {Array.from({ length: 12 }, (_, idx) => idx).map((idx) => (
-              <SkeletonCard key={idx} />
-            ))}
-          </Container>
-        )
-        : filteredProducts.length !== 0 ? (
-          <Container>
-            {filteredProducts.map((product) => (
-              <ItemCard
-                key={product.id}
-                {...product}
-                onSelectedItems={onSelectedItems}
-              />
-            ))}
-          </Container>
-        ) : <NotFound />
-      }
+      {isLoading ? (
+        <Container>
+          {Array.from({ length: 12 }, (_, idx) => idx).map((idx) => (
+            <SkeletonCard key={idx} />
+          ))}
+        </Container>
+      ) : filteredProducts.length !== 0 ? (
+        <Container>
+          {filteredProducts.map((product) => (
+            <ItemCard
+              key={product.id}
+              {...product}
+              onSelectedItems={onSelectedItems}
+            />
+          ))}
+        </Container>
+      ) : (
+        <NotFound />
+      )}
     </>
   );
 }
