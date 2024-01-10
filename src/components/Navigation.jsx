@@ -1,8 +1,4 @@
-import { useRef } from "react";
-
 export default function Navigation({ searchTerm, onSearchTerm, cartItems }) {
-  const imgRef = useRef(null);
-
   return (
     <header className="fixed top-0 left-0 right-0 bg-white border-b-2 border-black py-2 z-50">
       <nav className="responsive-container flex items-center justify-between">
@@ -41,7 +37,6 @@ export default function Navigation({ searchTerm, onSearchTerm, cartItems }) {
             type="button"
             className="z-50 relative inline-flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-200 bg-black text-gray-800 shadow-sm disabled:opacity-50 disabled:pointer-events-none"
             data-hs-overlay="#hs-overlay-right"
-            ref={imgRef}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

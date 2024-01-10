@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Stars from "./Stars";
 import Spinner from "./Spinner";
 import { Toast } from "../utils/toast";
@@ -15,7 +15,6 @@ export default function ItemCard({
 }) {
   const [isAdded, setIsAdded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const imgRef = useRef(null);
 
   useEffect(() => {
     let hasItem = cartItems.find((item) => item.id === id);
@@ -48,7 +47,6 @@ export default function ItemCard({
     >
       <div className="shrink-0 -mt-16 mb-8 group-hover:rotate-3 group-hover: transition-transform duration-300 ease-out">
         <img
-          ref={imgRef}
           src={image}
           alt={description}
           className="w-auto h-32 object-contain object-center"

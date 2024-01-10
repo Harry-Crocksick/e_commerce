@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { Navigation, Footer, Pagination, ProductCards } from "./components";
 import { Offcanvas } from "./components/ui";
@@ -11,10 +11,6 @@ export default function App() {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query.trim(), 400);
   const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
 
   return (
     <main className="min-h-screen relative flex flex-col">
