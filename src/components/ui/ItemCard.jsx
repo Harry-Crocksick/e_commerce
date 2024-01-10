@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Stars from "./Stars";
 import Spinner from "./Spinner";
+import { Toast } from "../utils/toast";
 
 export default function ItemCard({
   id,
@@ -32,6 +33,10 @@ export default function ItemCard({
       .then((result) => {
         setIsLoading(false);
         setCartItems((prev) => [...prev, result]);
+        Toast.fire({
+          icon: "success",
+          title: "Successfully added to cart!",
+        });
       });
     setIsAdded(true);
   }

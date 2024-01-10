@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function ListItem({
   id,
@@ -20,8 +21,24 @@ export default function ListItem({
   }
 
   function handleRemoveItem(id) {
-    confirm("Are you sure to delete?") &&
-      setCartItems(cartItems.filter((item) => item.id !== id));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setCartItems(cartItems.filter((item) => item.id !== id));
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your item has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   }
 
   return (
