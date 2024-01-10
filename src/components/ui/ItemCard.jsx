@@ -32,7 +32,7 @@ export default function ItemCard({
       .then((res) => res.json())
       .then((result) => {
         setIsLoading(false);
-        setCartItems((prev) => [...prev, result]);
+        setCartItems((prev) => [...prev, { ...result, quantity: 1 }]);
         Toast.fire({
           icon: "success",
           title: "Successfully added to cart!",

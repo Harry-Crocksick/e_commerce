@@ -12,12 +12,38 @@ export default function ListItem({
 }) {
   const [count, setCount] = useState(1);
 
-  function increment() {
+  function increment(id) {
     setCount(count + 1);
+    setCartItems(
+      cartItems.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: count + 1,
+          };
+        } else {
+          return item;
+        }
+      })
+    );
   }
 
-  function decrement() {
-    count > 1 && setCount(count - 1);
+  function decrement(id) {
+    if (count > 1) {
+      setCartItems(
+        cartItems.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              quantity: count - 1,
+            };
+          } else {
+            return item;
+          }
+        })
+      );
+      setCount(count - 1);
+    }
   }
 
   function handleRemoveItem(id) {
@@ -42,7 +68,7 @@ export default function ListItem({
   }
 
   return (
-    <li key={id} className="flex py-6">
+    <li className="flex py-6">
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
         <img
           src={image}
@@ -70,7 +96,7 @@ export default function ListItem({
               id="decrement-button"
               data-input-counter-decrement="counter-input"
               className="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none"
-              onClick={decrement}
+              onClick={() => decrement(id)}
             >
               <svg
                 className="w-2.5 h-2.5 text-gray-900"
@@ -94,7 +120,7 @@ export default function ListItem({
               id="increment-button"
               data-input-counter-increment="counter-input"
               className="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none"
-              onClick={increment}
+              onClick={() => increment(id)}
             >
               <svg
                 className="w-2.5 h-2.5 text-gray-900"

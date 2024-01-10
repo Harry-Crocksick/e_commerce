@@ -1,7 +1,29 @@
+import Swal from "sweetalert2";
 import CartItems from "../CartItems";
 import empty_cart from "../../assets/empty_cart.svg";
+import delivery_gif from "/delivery-truck.gif";
 
 export default function Offcanvas({ selectedItems, cartItems, setCartItems }) {
+  function handleOrder() {
+    if (cartItems.length === 0) {
+      Swal.fire({
+        title: "Cart is Empty😢!",
+        text: "Please order something",
+        icon: "info",
+      });
+    } else {
+      setCartItems([]);
+      Swal.fire({
+        title: "🎉Hooray🎉",
+        text: "Your order is on the way🥳",
+        imageUrl: delivery_gif,
+        imageWidth: 350,
+        imageHeight: 350,
+        imageAlt: "Delivery",
+      });
+    }
+  }
+
   return (
     <>
       <div
@@ -57,18 +79,29 @@ export default function Offcanvas({ selectedItems, cartItems, setCartItems }) {
               </div>
             </div>
           )}
-          <footer className="px-4 py-6 sm:px-6">
+          <footer className="border-t-2 border-gray-200 px-4 py-6 sm:px-6">
             <div className="flex justify-between text-base font-medium text-gray-900">
               <p>Subtotal</p>
-              <p className="text-xl font-bold">$262.00</p>
+              <p className="text-xl font-bold">
+                $
+                {cartItems
+                  .reduce(
+                    (prev, currentItem) =>
+                      prev + currentItem.price * currentItem.quantity,
+                    0
+                  )
+                  .toFixed(2)}
+              </p>
             </div>
             <p className="mt-0.5 text-sm text-gray-500">
-              Shipping and taxes calculated at checkout.
+              Shipping fees and taxes included.
             </p>
             <div className="mt-6">
               <a
                 href="#"
+                data-hs-overlay="#hs-overlay-right"
                 className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/80"
+                onClick={handleOrder}
               >
                 Order Now
               </a>
