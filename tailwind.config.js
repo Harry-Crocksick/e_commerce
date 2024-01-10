@@ -1,11 +1,7 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,html}",
-    "node_modules/preline/dist/*.js",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx,html}"],
   theme: {
     extend: {
       keyframes: {
@@ -17,5 +13,5 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("preline/plugin")],
+  plugins: [require("@tailwindcss/forms")],
 };
