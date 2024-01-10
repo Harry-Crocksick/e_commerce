@@ -16,12 +16,12 @@ export default function Navigation({
             type="search"
             name="search"
             value={searchTerm}
-            className="rounded-lg border border-black/40 hidden md:inline-block"
+            className="rounded-lg border border-black/40 hidden lg:inline-block"
             onChange={(e) => onSearchTerm(e.target.value)}
           />
           <button
             type="button"
-            className="relative inline-flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-400 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+            className="hidden lg:inline-flex relative justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-400 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -35,14 +35,14 @@ export default function Offcanvas({
     <>
       {isCartOpen && (
         <div
-          className="fixed inset-0 w-full h-full bg-black/10 backdrop-blur-sm z-40"
+          className="fixed inset-0 w-full h-screen bg-black/10 backdrop-blur-sm z-40"
           onClick={() => setIsCartOpen(false)}
         ></div>
       )}
       <div
         className={`${
           isCartOpen ? "translate-x-0" : "translate-x-full"
-        } fixed top-0 end-0 transition-all duration-300 transform h-full max-w-sm w-full z-[60] bg-white border-s-2 border-black`}
+        } fixed top-0 end-0 transition-all duration-300 transform h-full max-w-sm w-full z-[60] bg-white`}
         tabIndex={-1}
       >
         <div className="flex flex-col h-full">
@@ -75,7 +75,7 @@ export default function Offcanvas({
             </button>
           </div>
           {selectedItems.length > 0 ? (
-            <div className="flex justify-center flex-1 p-4 h-full overflow-y-scroll">
+            <div className="flex justify-center flex-1 p-4 h-full overflow-y-scroll overscroll-contain">
               <CartItems
                 selectedItems={selectedItems}
                 cartItems={cartItems}
