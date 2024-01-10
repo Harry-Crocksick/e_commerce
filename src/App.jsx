@@ -1,29 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { Navigation, Footer, Pagination, ProductCards } from "./components";
 import { Offcanvas } from "./components/ui";
 
 export default function App() {
+  const [selectedID, setSelectedID] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
   const [activeTag, setActiveTag] = useState("All");
   const [category, setCategory] = useState("");
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query.trim(), 400);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
 
   return (
     <main className="min-h-screen relative flex flex-col">
-      <Navigation searchTerm={query} onSearchTerm={setQuery} />
-      <Offcanvas />
+      <Navigation
+        searchTerm={query}
+        onSearchTerm={setQuery}
+        cartItems={cartItems}
+      />
+      <Offcanvas
+        selectedItems={cartItems}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
       <Pagination
         setCategory={setCategory}
         activeTag={activeTag}
         setActiveTag={setActiveTag}
       />
       <ProductCards
-        selectedItems={selectedItems}
-        onSelectedItems={setSelectedItems}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        selectedID={selectedID}
+        onSelectedID={setSelectedID}
         searchTerm={debouncedQuery}
         category={category}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
       />
       <Footer />
     </main>

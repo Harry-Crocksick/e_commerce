@@ -3,9 +3,14 @@ import { SkeletonCard, ItemCard, NotFound } from "./ui";
 import { useFetch } from "./customHooks";
 
 export default function ProductCards({
-  onSelectedItems,
+  cartItems,
+  setCartItems,
+  onSelectedID,
+  selectedID,
   searchTerm,
   category,
+  selectedItems,
+  setSelectedItems,
 }) {
   const url = `https://fakestoreapi.com/products/${category.toLowerCase()}`;
   const [products, isLoading] = useFetch(url);
@@ -28,7 +33,12 @@ export default function ProductCards({
             <ItemCard
               key={product.id}
               {...product}
-              onSelectedItems={onSelectedItems}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              selectedID={selectedID}
+              onSelectedID={onSelectedID}
+              selectedItems={selectedItems}
+              setSelectedItems={setSelectedItems}
             />
           ))}
         </Container>

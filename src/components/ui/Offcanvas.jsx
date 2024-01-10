@@ -1,15 +1,16 @@
+import CartItems from "../CartItems";
 import empty_cart from "../../assets/empty_cart.svg";
 
-export default function Offcanvas() {
+export default function Offcanvas({ selectedItems, cartItems, setCartItems }) {
   return (
     <>
       <div
         id="hs-overlay-right"
-        className="hs-overlay hs-overlay-open:translate-x-0 translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-[60] bg-white border-s-2 border-black hidden"
+        className="hs-overlay hs-overlay-open:translate-x-0 translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-sm w-full z-[60] bg-white border-s-2 border-black hidden"
         tabIndex={-1}
       >
         <div className="flex flex-col h-full">
-          <div className="flex justify-between items-center py-2 px-4 border-b-2 border-black">
+          <div className="flex justify-between items-center py-2 px-4 border-b-2 border-gray-200">
             <div>
               <h1 className="text-xl font-bold text-black">MMS SOLUTIONS</h1>
               <p className="text-lg font-semibold text-slate-400">E-Commerce</p>
@@ -37,23 +38,41 @@ export default function Offcanvas() {
               </svg>
             </button>
           </div>
-          <div className="flex justify-center items-center flex-1 p-4 h-full overflow-y-scroll">
-            <div className="shrink-0">
-              <img
-                src={empty_cart}
-                alt="Empty Cart"
-                className="w-64 h-auto object-contain object-center"
+          {selectedItems.length > 0 ? (
+            <div className="flex justify-center flex-1 p-4 h-full overflow-y-scroll">
+              <CartItems
+                selectedItems={selectedItems}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
               />
             </div>
-          </div>
-          <footer className="border-t-2 border-black p-1.5">
-            <div className="text-right mb-2">
-              <p>Total Amount</p>
-              <p className="text-black text-2xl font-semibold">$1000</p>
+          ) : (
+            <div className="flex justify-center items-center flex-1 p-4 h-full overflow-y-scroll">
+              <div className="shrink-0">
+                <img
+                  src={empty_cart}
+                  alt="Empty Cart"
+                  className="w-64 h-auto object-contain object-center"
+                />
+              </div>
             </div>
-            <button className="bg-neutral-700 py-1.5 text-white font-medium w-full">
-              Order Now
-            </button>
+          )}
+          <footer className="px-4 py-6 sm:px-6">
+            <div className="flex justify-between text-base font-medium text-gray-900">
+              <p>Subtotal</p>
+              <p className="text-xl font-bold">$262.00</p>
+            </div>
+            <p className="mt-0.5 text-sm text-gray-500">
+              Shipping and taxes calculated at checkout.
+            </p>
+            <div className="mt-6">
+              <a
+                href="#"
+                className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/80"
+              >
+                Order Now
+              </a>
+            </div>
           </footer>
         </div>
       </div>
