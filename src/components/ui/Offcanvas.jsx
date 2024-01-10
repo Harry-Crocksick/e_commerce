@@ -3,7 +3,13 @@ import CartItems from "../CartItems";
 import empty_cart from "../../assets/empty_cart.svg";
 import delivery_gif from "/delivery-truck.gif";
 
-export default function Offcanvas({ selectedItems, cartItems, setCartItems }) {
+export default function Offcanvas({
+  selectedItems,
+  cartItems,
+  setCartItems,
+  isCartOpen,
+  setIsCartOpen,
+}) {
   function handleOrder() {
     if (cartItems.length === 0) {
       Swal.fire({
@@ -22,13 +28,21 @@ export default function Offcanvas({ selectedItems, cartItems, setCartItems }) {
         imageAlt: "Delivery",
       });
     }
+    setIsCartOpen(false);
   }
 
   return (
     <>
+      {isCartOpen && (
+        <div
+          className="fixed inset-0 w-full h-full bg-black/10 backdrop-blur-sm z-40"
+          onClick={() => setIsCartOpen(false)}
+        ></div>
+      )}
       <div
-        id="hs-overlay-right"
-        className="hs-overlay hs-overlay-open:translate-x-0 translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-sm w-full z-[60] bg-white border-s-2 border-black hidden"
+        className={`${
+          isCartOpen ? "translate-x-0" : "translate-x-full"
+        } fixed top-0 end-0 transition-all duration-300 transform h-full max-w-sm w-full z-[60] bg-white border-s-2 border-black`}
         tabIndex={-1}
       >
         <div className="flex flex-col h-full">
@@ -40,7 +54,7 @@ export default function Offcanvas({ selectedItems, cartItems, setCartItems }) {
             <button
               type="button"
               className="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
-              data-hs-overlay="#hs-overlay-right"
+              onClick={() => setIsCartOpen(false)}
             >
               <span className="sr-only">Close modal</span>
               <svg
@@ -99,7 +113,6 @@ export default function Offcanvas({ selectedItems, cartItems, setCartItems }) {
             <div className="mt-6">
               <a
                 href="#"
-                data-hs-overlay="#hs-overlay-right"
                 className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/80"
                 onClick={handleOrder}
               >

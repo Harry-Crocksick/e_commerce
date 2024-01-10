@@ -11,6 +11,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query.trim(), 400);
   const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <main className="min-h-screen relative flex flex-col">
@@ -18,11 +19,14 @@ export default function App() {
         searchTerm={query}
         onSearchTerm={setQuery}
         cartItems={cartItems}
+        setIsCartOpen={setIsCartOpen}
       />
       <Offcanvas
         selectedItems={cartItems}
         cartItems={cartItems}
         setCartItems={setCartItems}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
       />
       <Pagination
         setCategory={setCategory}

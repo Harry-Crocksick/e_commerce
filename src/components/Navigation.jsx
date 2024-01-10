@@ -1,6 +1,11 @@
-export default function Navigation({ searchTerm, onSearchTerm, cartItems }) {
+export default function Navigation({
+  searchTerm,
+  onSearchTerm,
+  cartItems,
+  setIsCartOpen,
+}) {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white border-b-2 border-black py-2 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-white border-b border-black py-2 z-30">
       <nav className="responsive-container flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-black">MMS SOLUTIONS</h1>
@@ -36,7 +41,7 @@ export default function Navigation({ searchTerm, onSearchTerm, cartItems }) {
           <button
             type="button"
             className="z-50 relative inline-flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-200 bg-black text-gray-800 shadow-sm disabled:opacity-50 disabled:pointer-events-none"
-            data-hs-overlay="#hs-overlay-right"
+            onClick={() => setIsCartOpen(true)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
