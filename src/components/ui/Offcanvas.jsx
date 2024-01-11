@@ -2,14 +2,12 @@ import Swal from "sweetalert2";
 import CartItems from "../CartItems";
 import empty_cart from "../../assets/empty_cart.svg";
 import delivery_gif from "/delivery-truck.gif";
+import { useDataCenter } from "../context/DataCenter";
 
-export default function Offcanvas({
-  selectedItems,
-  cartItems,
-  setCartItems,
-  isCartOpen,
-  setIsCartOpen,
-}) {
+export default function Offcanvas() {
+  const { cartItems, isCartOpen, setIsCartOpen, setCartItems } =
+    useDataCenter();
+
   function handleOrder() {
     if (cartItems.length === 0) {
       Swal.fire({
@@ -74,13 +72,9 @@ export default function Offcanvas({
               </svg>
             </button>
           </div>
-          {selectedItems.length > 0 ? (
+          {cartItems.length > 0 ? (
             <div className="flex justify-center flex-1 p-4 h-full overflow-y-scroll overscroll-contain">
-              <CartItems
-                selectedItems={selectedItems}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-              />
+              <CartItems />
             </div>
           ) : (
             <div className="flex justify-center items-center flex-1 p-4 h-full overflow-y-scroll">
@@ -93,9 +87,9 @@ export default function Offcanvas({
               </div>
             </div>
           )}
-          <footer className="border-t-2 border-gray-200 px-4 py-6 sm:px-6">
+          <footer className="border-t-2 border-gray-200 px-4 py-2 sm:px-6">
             <div className="flex justify-between text-base font-medium text-gray-900">
-              <p>Subtotal</p>
+              <p className="text-lg font-semibold">Subtotal</p>
               <p className="text-xl font-bold">
                 $
                 {cartItems
@@ -113,7 +107,7 @@ export default function Offcanvas({
             <div className="mt-6">
               <a
                 href="#"
-                className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/80"
+                className="flex items-center justify-center rounded-md border border-transparent bg-black py-3 text-base font-medium text-white shadow-sm hover:bg-black/80"
                 onClick={handleOrder}
               >
                 Order Now

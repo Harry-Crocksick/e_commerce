@@ -1,9 +1,8 @@
-export default function Navigation({
-  searchTerm,
-  onSearchTerm,
-  cartItems,
-  setIsCartOpen,
-}) {
+import { useDataCenter } from "./context/DataCenter";
+
+export default function Navigation() {
+  const { query, setQuery, cartItems, setIsCartOpen } = useDataCenter();
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white border-b border-black py-2 z-30">
       <nav className="responsive-container flex items-center justify-between">
@@ -16,9 +15,9 @@ export default function Navigation({
             <input
               type="search"
               name="search"
-              value={searchTerm}
+              value={query}
               className="hidden lg:inline-block text-lg outline-none border-none"
-              onChange={(e) => onSearchTerm(e.target.value)}
+              onChange={(e) => setQuery(e.target.value)}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"

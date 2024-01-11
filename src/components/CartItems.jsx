@@ -1,15 +1,13 @@
 import ListItem from "./ui/ListItem";
+import { useDataCenter } from "./context/DataCenter";
 
-export default function CartItems({ selectedItems, cartItems, setCartItems }) {
+export default function CartItems() {
+  const { cartItems } = useDataCenter();
+
   return (
     <ul role="list" className="-my-6 divide-y divide-gray-200">
-      {selectedItems.map((selectedItem) => (
-        <ListItem
-          key={selectedItem.id}
-          {...selectedItem}
-          cartItems={cartItems}
-          setCartItems={setCartItems}
-        />
+      {cartItems.map((selectedItem) => (
+        <ListItem key={selectedItem.id} {...selectedItem} />
       ))}
     </ul>
   );

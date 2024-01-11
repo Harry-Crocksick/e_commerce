@@ -1,16 +1,10 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useDataCenter } from "../context/DataCenter";
 
-export default function ListItem({
-  id,
-  image,
-  title,
-  price,
-  category,
-  cartItems,
-  setCartItems,
-}) {
+export default function ListItem({ id, image, title, price, category }) {
   const [count, setCount] = useState(1);
+  const { cartItems, setCartItems } = useDataCenter();
 
   function increment(id) {
     setCount(count + 1);

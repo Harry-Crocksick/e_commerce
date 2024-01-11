@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Stars from "./Stars";
 import Spinner from "./Spinner";
 import { Toast } from "../utils/toast";
+import { useDataCenter } from "../context/DataCenter";
 
 export default function ItemCard({
   id,
@@ -10,11 +11,10 @@ export default function ItemCard({
   title,
   rating,
   price,
-  cartItems,
-  setCartItems,
 }) {
   const [isAdded, setIsAdded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { cartItems, setCartItems } = useDataCenter();
 
   useEffect(() => {
     let hasItem = cartItems.find((item) => item.id === id);
