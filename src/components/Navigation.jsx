@@ -12,24 +12,21 @@ export default function Navigation({
           <p className="text-lg font-semibold text-slate-400">E-Commerce</p>
         </div>
         <div className="flex items-center space-x-2">
-          <input
-            type="search"
-            name="search"
-            value={searchTerm}
-            className="rounded-lg border border-black/40 hidden lg:inline-block"
-            onChange={(e) => onSearchTerm(e.target.value)}
-          />
-          <button
-            type="button"
-            className="hidden lg:inline-flex relative justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-400 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-          >
+          <div className="hidden lg:inline-flex items-center p-2 border border-black/70 rounded-lg">
+            <input
+              type="search"
+              name="search"
+              value={searchTerm}
+              className="hidden lg:inline-block text-lg outline-none border-none"
+              onChange={(e) => onSearchTerm(e.target.value)}
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5"
+              className="w-5 h-5 ml-2"
             >
               <path
                 strokeLinecap="round"
@@ -37,10 +34,10 @@ export default function Navigation({
                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
               />
             </svg>
-          </button>
+          </div>
           <button
             type="button"
-            className="z-50 relative inline-flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-200 bg-black text-gray-800 shadow-sm disabled:opacity-50 disabled:pointer-events-none"
+            className="z-50 relative inline-flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-200 bg-black text-gray-800"
             onClick={() => setIsCartOpen(true)}
           >
             <svg
