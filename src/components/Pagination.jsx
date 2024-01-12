@@ -16,11 +16,10 @@ export default function Pagination() {
       {navLinks.map((link) => (
         <li
           key={link.name}
-          className={`shrink-0 basis-[160px] md:shrink lg:basis-1/5 ${
-            activeTag === link.name
-              ? "bg-neutral-700 text-white"
-              : "bg-white text-black"
-          } border border-black text-center py-1 font-semibold cursor-pointer`}
+          className={`shrink-0 basis-[160px] md:shrink lg:basis-1/5 ${activeTag === link.name
+            ? "bg-neutral-700 text-white"
+            : "bg-white text-black"
+            } border border-black text-center py-1 font-semibold cursor-pointer`}
           onClick={() => {
             setActiveTag(link.name);
             setCategory(link.href);

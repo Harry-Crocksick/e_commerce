@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import CartItems from "../CartItems";
 import empty_cart from "../../assets/empty_cart.svg";
-import delivery_gif from "/delivery-truck.gif";
+import delivery_gif from "/truck.gif";
 import { useDataCenter } from "../context/DataCenter";
 
 export default function Offcanvas() {
@@ -38,9 +38,8 @@ export default function Offcanvas() {
         ></div>
       )}
       <div
-        className={`${
-          isCartOpen ? "translate-x-0" : "translate-x-full"
-        } fixed top-0 end-0 transition-all duration-300 transform h-full max-w-sm w-full z-[60] bg-white`}
+        className={`${isCartOpen ? "translate-x-0" : "translate-x-full"
+          } fixed top-0 end-0 transition-all duration-300 transform h-full max-w-sm w-full z-[60] bg-white`}
         tabIndex={-1}
       >
         <div className="flex flex-col h-full">
